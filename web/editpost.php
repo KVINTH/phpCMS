@@ -1,5 +1,5 @@
 <?php require 'connect.php';
-
+session_start();
 if ($_GET != null)
 {
     $query = "SELECT * FROM posts WHERE PostID = :id LIMIT 1";
