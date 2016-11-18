@@ -23,13 +23,19 @@ $statement->execute();
 </head>
 <body>
 
-        <div id ="all_blogs">
+        <div id ="feed">
             <?php $i = 1 ?>
             <?php while(($row = $statement->fetch()) && ($i <=5)): ?>
                 <div class="feed">
                     <header>
                         <?= "<h1>". $row['PostTitle']. "</h1>" ?>
-                        <h4><?= $row['PostDate'] ?> - <a href="editpost.php?id=<?=$row['PostID']?>">edit</a></h4>
+                        <h4>
+                            <?= $row['PostDate'] ?> -
+                            <?php if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == true): ?>
+                            <a href="editpost.php?id=<?=$row['PostID']?>">edit</a>
+                            <?php else: ?>
+                            <?php endif ?>
+                        </h4>
                     </header>
                     <content>
                         <?php if (strlen($row['PostContent']) > 200): ?>
