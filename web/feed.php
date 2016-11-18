@@ -28,7 +28,6 @@ $statement->execute();
             <?php while(($row = $statement->fetch()) && ($i <=5)): ?>
                 <div class="feed">
                     <header>
-                        <?= "<h1>". $row['PostTitle']. "</h1>" ?>
                         <h1><a href="post.php?id=<?=$row['PostID']?>"><?=$row['PostTitle']?></a></h1>
                         <h4>
                             <?= $row['PostDate'] ?>
