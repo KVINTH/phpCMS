@@ -1,8 +1,10 @@
 <?php
+require('constants.php');
 
-    define('DB_DSN', 'mysql:host=localhost;dbname=cms;charset=utf8');
-    define('DB_USER', 'root');
-    define('DB_PASS', 'jamilmian');
+define('DB_DSN', 'mysql:host=localhost;dbname=cms;charset=utf8');
+define('DB_USER', $dbUser);
+define('DB_PASS', $dbPass);
+
 
     $db = "";
 try{
@@ -51,34 +53,4 @@ try {
 
 */
 
-
-
-
-
-
-//You can only use this with the standard port!
-
-/*
-define('PATH_TO_SSL_CLIENT_KEY_FILE', 'bc369f8fac8ab9-key.pem');
-define('PATH_TO_SSL_CLIENT_CERT_FILE', 'bc369f8fac8ab9-cert.pem');
-define('PATH_TO_CA_CERT_FILE', 'cleardb-ca.pem');
-
-define('HOSTNAME', 'us-cdbr-iron-east-04.cleardb.net');
-define('USERNAME', 'bc369f8fac8ab9');
-define('PASSWORD', 'a3e4ad29');
-define('DATABASE_NAME', 'heroku_7aaa639dbd3def3');
-
-$db = "";
-
-try {
-    $db = mysqli_init();
-
-    $db->ssl_set(PATH_TO_SSL_CLIENT_KEY_FILE, PATH_TO_SSL_CLIENT_CERT_FILE, PATH_TO_CA_CERT_FILE, null, null);
-    $db->real_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE_NAME);
-} catch (Exception $e) {
-    print "Error: " . $e -> getMessage();
-    die();
-}
-
-*/
 ?>

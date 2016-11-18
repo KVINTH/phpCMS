@@ -2,3 +2,4 @@ vendor/
 cms.sql
 .idea/
 *.pem
+web/constants.php
