@@ -63,10 +63,10 @@ define('PATH_TO_SSL_CLIENT_KEY_FILE', 'bc369f8fac8ab9-key.pem');
 define('PATH_TO_SSL_CLIENT_CERT_FILE', 'bc369f8fac8ab9-cert.pem');
 define('PATH_TO_CA_CERT_FILE', 'cleardb-ca.pem');
 
-define('HOSTNAME', 'us-cdbr-iron-east-04.cleardb.net');
-define('USERNAME', 'bc369f8fac8ab9');
-define('PASSWORD', 'a3e4ad29');
-define('DATABASE_NAME', 'heroku_7aaa639dbd3def3');
+define('HOSTNAME', '');
+define('USERNAME', '');
+define('PASSWORD', '');
+define('DATABASE_NAME', '');
 
 $db = "";
 
