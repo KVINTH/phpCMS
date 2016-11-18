@@ -4,8 +4,9 @@
 
     $query = "SELECT * FROM categories ORDER BY CategoryID DESC";
     $statement = $db->prepare($query);
-
     $statement->execute();
+
+    $user = "";
 ?>
 
 <form action="post_process.php" method="post">
@@ -30,6 +31,8 @@
             </select>
         </p>
         <p>
+            <?php $user = $_SESSION['userid'] ?>
+            <input name="userid" type="hidden" id="userid" value="<?=$user?>"/>
             <input name="submit" type="submit" value="Create" />
         </p>
     </fieldset>

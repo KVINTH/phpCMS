@@ -1,13 +1,12 @@
 <?php
 require 'connect.php';
-
 if ($_POST['submit'] == 'Delete')
 {
     $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     $query = "DELETE FROM posts WHERE PostID = :id";
-
     $statement = $db->prepare($query);
+
     $statement->bindValue(':id', $id, PDO::PARAM_INT);
 
     if ($statement->execute())
@@ -28,12 +27,18 @@ if ($_POST && isset($_POST['title'])
         if ($_POST['submit'] == "Create")
         {
             $categoryID = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_NUMBER_INT);
-            $query = "INSERT INTO posts (PostTitle, PostContent, CategoryID) VALUES (:title, :content, :category)";
+            $userID = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_NUMBER_INT);
+
+            $userID = intval($userID);
+
+            $query = "INSERT INTO posts (PostTitle, PostContent, CategoryID, UserID) VALUES (:title, :content, :category, :useridnumber)";
             $statement = $db->prepare($query);
 
             $statement->bindValue(':title', $title);
             $statement->bindValue(':content', $content);
             $statement->bindValue(':category', $categoryID);
+            $statement->bindValue(':useridnumber', $userID);
+            //$statement->bindValue(':user', $userID);
         }
         else
         {
@@ -54,5 +59,6 @@ if ($_POST && isset($_POST['title'])
             header('Location: index.php');
             exit;
         }
+
 }
  ?>

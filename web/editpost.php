@@ -1,5 +1,5 @@
 <?php require 'connect.php';
-
+session_start();
 if ($_GET != null)
 {
     $query = "SELECT * FROM posts WHERE PostID = :id LIMIT 1";
@@ -46,7 +46,7 @@ else {
             <form action="post_process.php" method="post">
                 <fieldset>
                     <legend>
-                        Edit Blog Post
+                        Edit Post
                     </legend>
                     <p>
                         <label for="title">Title</label>

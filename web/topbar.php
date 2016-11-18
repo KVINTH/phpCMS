@@ -6,8 +6,7 @@
 </header>
 <div id="topprofile">
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
-        <?= $_SESSION['username'] ?>
+        <?= $_SESSION['username'] ?> | <?=$_SESSION['userid'] ?>
     <?php else: ?>
     <?php endif ?>
 </div>
-

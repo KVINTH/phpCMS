@@ -39,8 +39,11 @@ $statement->execute();
                             <?= $row['PostContent']?>
                         <?php endif ?>
                     </content>
-                    <div id="category">
-                        Category: <?= $row['CategoryName']?>
+                    <div id="info">
+                        <p>
+                            Posted by: in Category: <?= $row['CategoryName']?>
+                        </p>
+
                     </div>
                 </div>
             <?php endwhile ?>
