@@ -1,5 +1,5 @@
 <?php
-/*
+
     define('DB_DSN', 'mysql:host=localhost;dbname=cms;charset=utf8');
     define('DB_USER', 'root');
     define('DB_PASS', 'jamilmian');
@@ -11,9 +11,9 @@ try{
     print "Error: " . $e -> getMessage();
     die();
 }
-*/
 
 
+/*
 $dbstr = getenv('CLEARDB_DATABASE_URL');
 $dbstr = substr("$dbstr", 8);
 $dbstrarruser = explode(":", $dbstr);
@@ -38,7 +38,7 @@ echo $dbport . " - port<br>";
 echo $dbuser . " - user<br>";
 echo $dbpassword . " - passwd<br>";
 */
-
+/*
 try {
     $dbanfang = 'mysql:host=' . $dbhost . ';dbname=' . $dbname;
     $db = new PDO($dbanfang, $dbuser, $dbpassword);
@@ -49,7 +49,7 @@ try {
 
 
 
-
+*/
 
 
 
