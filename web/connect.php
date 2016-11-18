@@ -5,7 +5,6 @@ define('DB_DSN', 'mysql:host=localhost;dbname=cms;charset=utf8');
 define('DB_USER', $dbUser);
 define('DB_PASS', $dbPass);
 
-
     $db = "";
 try{
     $db = new PDO(DB_DSN, DB_USER, DB_PASS);
@@ -53,4 +52,37 @@ try {
 
 */
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+//You can only use this with the standard port!
+
+/*
+define('PATH_TO_SSL_CLIENT_KEY_FILE', 'bc369f8fac8ab9-key.pem');
+define('PATH_TO_SSL_CLIENT_CERT_FILE', 'bc369f8fac8ab9-cert.pem');
+define('PATH_TO_CA_CERT_FILE', 'cleardb-ca.pem');
+
+define('HOSTNAME', '');
+define('USERNAME', '');
+define('PASSWORD', '');
+define('DATABASE_NAME', '');
+
+$db = "";
+
+try {
+    $db = mysqli_init();
+
+    $db->ssl_set(PATH_TO_SSL_CLIENT_KEY_FILE, PATH_TO_SSL_CLIENT_CERT_FILE, PATH_TO_CA_CERT_FILE, null, null);
+    $db->real_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE_NAME);
+} catch (Exception $e) {
+    print "Error: " . $e -> getMessage();
+    die();
+}
+
+*/
+>>>>>>> 09f85f85902a99a066a461648a7ba83c413307cb
 ?>
