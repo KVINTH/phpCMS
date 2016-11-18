@@ -53,11 +53,11 @@ else {
                         <?php endif ?>
                     </h4>
                 </header>
-                <content>
+                <div id="content">
                     <p>
                         <?=$row['PostContent']?>
                     </p>
-                </content>
+                </div>
             </div>
         </div>
     </body>
