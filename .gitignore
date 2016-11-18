@@ -2,4 +2,3 @@ vendor/
 cms.sql
 .idea/
 *.pem
-connect.php
