@@ -46,7 +46,12 @@ else {
             <div id="content">
                 <header>
                     <h1><?=$row['PostTitle']?></h1>
-                    <h4><?=$row['PostDate']?> - <a href="editpost.php?id=<?=$row['PostID']?>">edit</a></h4>
+                    <h4>
+                        <?=$row['PostDate']?> <?php if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == true): ?>
+                        - <a href="editpost.php?id=<?=$row['PostID']?>">edit</a>
+                        <?php else: ?>
+                        <?php endif ?>
+                    </h4>
                 </header>
                 <content>
                     <p>
