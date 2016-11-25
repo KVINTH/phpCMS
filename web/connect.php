@@ -1,4 +1,5 @@
 <?php
+
 require('constants.php');
 
 define('DB_DSN', 'mysql:host=localhost;dbname=cms;charset=utf8');
@@ -14,12 +15,15 @@ try{
 }
 
 
+
 ## ##########################################
 ## PDO connection to ClearDB
 ## This code was found at
 ## https://github.com/plehr/Heroku-and-PDO
 
 /*
+=======
+>>>>>>> master
 $dbstr = getenv('CLEARDB_DATABASE_URL');
 $dbstr = substr("$dbstr", 8);
 $dbstrarruser = explode(":", $dbstr);
@@ -52,7 +56,4 @@ try {
     print "Error: " . $e -> getMessage();
     die();
 }
-
-
-
 */

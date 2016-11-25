@@ -23,13 +23,14 @@ $statement->execute();
 </head>
 <body>
 
-        <div id ="all_blogs">
+        <div id ="feed">
             <?php $i = 1 ?>
             <?php while(($row = $statement->fetch()) && ($i <=5)): ?>
                 <div class="feed">
                     <header>
                         <h1><a href="post.php?id=<?=$row['PostID']?>"><?=$row['PostTitle']?></a></h1>
-                        <h4><?= $row['PostDate'] ?>
+                        <h4>
+                            <?= $row['PostDate'] ?>
 
                             <?php if (isset($_SESSION['loggedin'])
                                     && $_SESSION['loggedin'] == true
@@ -42,7 +43,7 @@ $statement->execute();
                             <?php else: ?>
                             <?php endif ?>
 
-                            </h4>
+                        </h4>
                     </header>
                     <content>
                         <?php if (strlen($row['PostContent']) > 200): ?>
