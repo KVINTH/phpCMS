@@ -7,6 +7,7 @@ body {
     background: #e9ebee;
     font-family: 'Open Sans', sans-serif;
 }
+
 div.topbar {
     background: #3b5998;
     color: #FFFFFF;
@@ -89,10 +90,34 @@ div.wrapper {
     left: 200px;
     top: 46px;
 }
-
+/*
 div.wrapper div#content {
     padding-top: 13px;
     padding-left: 13px;
+}
+*/
+#content content p {
+    width: 800px;
+    background-color: #f0f8ff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+div#content {
+    background-color: #f0f8ff;
+    position: relative;
+    border-radius: 10px;
+    top: 20px;
+    left: 15px;
+    padding: 10px;
+}
+div#comments {
+    background: #fff;
+    width: 400px;
+}
+div#comment {
+    border-style: solid;
+    border-width: 1px;
 }
 
 .footer {
@@ -103,4 +128,9 @@ div.wrapper div#content {
   padding: 1rem;
   background-color: #efefef;
   text-align: center;
+}
+
+
+textarea {
+    resize: none;
 }

@@ -24,8 +24,9 @@
 <div class="nav">
     <?php include 'navigation.php'?>
 </div>
-
 <div class="wrapper">
+
+
 
     <div id="content">
         <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
