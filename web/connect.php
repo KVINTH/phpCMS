@@ -1,11 +1,12 @@
 <?php
 
 require('constants.php');
-
+/*
 $clearDB = getenv('CLEARDB_DATABASE_URL');
 
 if (isset($clearDB))
 {
+*/
     $dbstr = getenv('CLEARDB_DATABASE_URL');
     $dbstr = substr("$dbstr", 8);
     $dbstrarruser = explode(":", $dbstr);
@@ -38,6 +39,7 @@ if (isset($clearDB))
         print "Error: " . $e -> getMessage();
         die();
     }
+    /*
 }
 else
 {
@@ -53,7 +55,7 @@ else
         die();
     }
 }
-
+*/
 ## ##########################################
 ## PDO connection to ClearDB
 ## This code was found at
