@@ -14,6 +14,13 @@ if ($_GET != null)
 
     $row = $statement->fetch();
 
+    // THUS BEGINS THE QUERY FOR COMMENTS ON posts
+    $commentQuery = "SELECT * FROM comments where PostID = :id ORDER BY PostID ASC";
+    $commentStatement = $db->prepare($commentQuery);
+
+    $commentStatement->bindValue(':id', $id, PDO::PARAM_INT);
+    $commentStatement->execute();
+
     if(empty($row)) {
         header('Location: index.php');
         exit;
@@ -54,6 +61,30 @@ else {
                     </p>
                 </content>
             </div>
+
+            <div id="comments">
+                <?php while($comment = $commentStatement->fetch()): ?>
+                    <div id="comment">
+                        <p>
+                            <?=$comment['Content']?>
+                        </p>
+
+                        Posted by:
+                        <?php
+                        $commentorQuery = "SELECT UserID, Username FROM users WHERE UserID = :userID";
+                        $commentorStatement = $db->prepare($commentorQuery);
+                        $commentorStatement->bindValue(':userID', $comment['UserID']);
+                        $commentorStatement->execute();
+                        $commentorRow = $commentorStatement->fetch();
+
+                        echo $commentorRow[1];
+                        ?>
+
+                    </div>
+                <?php endwhile ?>
+
+            </div>
+
         </div>
     </body>
 </html>
