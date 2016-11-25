@@ -11,12 +11,16 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
-<div class="topbar">
-    <?php include 'topbar.php'?>
-</div>
+    <div class="topbar">
+        <?php include 'topbar.php'?>
+    </div>
 
-<div class="nav">
-    <?php include 'navigation.php'?>
-</div>
+    <div class="nav">
+        <?php include 'navigation.php'?>
+    </div>
+
+    <div class="profile_content">
+
+    </div>
 </body>
 </html>

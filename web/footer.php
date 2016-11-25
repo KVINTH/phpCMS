@@ -3,7 +3,7 @@
         && isset($_SESSION['isadmin'])
         && $_SESSION['isadmin'] == true): ?>
     <p>
-        <a href="/admin">Administration Panel</a>
+        <a href="admin">Administration Panel</a>
     </p>
 <?php else: ?>
     <p>

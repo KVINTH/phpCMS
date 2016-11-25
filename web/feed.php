@@ -29,7 +29,20 @@ $statement->execute();
                 <div class="feed">
                     <header>
                         <?= "<h1>". $row['PostTitle']. "</h1>" ?>
-                        <h4><?= $row['PostDate'] ?> - <a href="editpost.php?id=<?=$row['PostID']?>">edit</a></h4>
+                        <h4><?= $row['PostDate'] ?>
+
+                            <?php if (isset($_SESSION['loggedin'])
+                                    && $_SESSION['loggedin'] == true
+                                    && isset($_SESSION['isadmin'])
+                                    && $_SESSION['isadmin'] == true): ?>
+                                    
+                                    <!-- the - below is for styling -->
+                                    - <a href="editpost.php?id=<?=$row['PostID']?>">edit</a>
+
+                            <?php else: ?>
+                            <?php endif ?>
+
+                            </h4>
                     </header>
                     <content>
                         <?php if (strlen($row['PostContent']) > 200): ?>
@@ -41,7 +54,19 @@ $statement->execute();
                     </content>
                     <div id="info">
                         <p>
-                            Posted by: in Category: <?= $row['CategoryName']?>
+                            Posted by:
+                            <?php
+
+                            $userQuery = "SELECT UserID, Username FROM users WHERE UserID = :userID";
+                            $userStatement = $db->prepare($userQuery);
+                            $userStatement->bindValue(':userID', $row['UserID']);
+                            $userStatement->execute();
+                            $userRow = $userStatement->fetch();
+
+                            echo $userRow[1];
+                            ?>
+
+                            in Category:  <?= $row['CategoryName']?>
                         </p>
 
                     </div>

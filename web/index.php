@@ -27,7 +27,7 @@
 
 <div class="wrapper">
 
-    <div id="content">    
+    <div id="content">
         <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
             <div id="newpost">
                 <?php include('newpost.php') ?>
