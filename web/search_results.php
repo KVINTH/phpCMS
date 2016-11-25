@@ -1,13 +1,3 @@
-<?php
-    require 'connect.php';
-    session_start();
-    $query = "SELECT * FROM pages ORDER BY PageID DESC";
-
-    $statement = $db->prepare($query);
-
-    $statement->execute();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,16 +19,18 @@
 <gcse:searchbox-only resultsUrl="search_results.php" newWindow="false" queryParameterName="search">
 
     <div id="content">
-        <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
-            <div id="newpost">
-                <?php include('newpost.php') ?>
-            </div>
-            <?php include('feed.php') ?>
-        <?php else: ?>
-            <p>
-                Please log in to see this page.
-            </p>
-        <?php endif ?>
+    <script>
+        (function() {
+        var cx = '010277497475013333864:hwamqpgvgfq';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+    <gcse:searchresults-only></gcse:searchresults-only>
 
     </div>
 

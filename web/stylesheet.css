@@ -130,6 +130,16 @@ div#comment {
   text-align: center;
 }
 
+div#profilepic img {
+    width: 200px;
+
+}
+div#commentImage img {
+    width: 50px;
+}
+div#comment p img {
+
+}
 
 textarea {
     resize: none;

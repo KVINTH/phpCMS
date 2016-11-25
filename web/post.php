@@ -65,7 +65,18 @@ else {
                 <div id="comments">
                     <?php while($comment = $commentStatement->fetch()): ?>
                         <div id="comment">
+                            <div id="commentImage">
+                                <?php
+                                $picQuery = "SELECT ProfilePicPath FROM users WHERE UserID = :userID";
+                                $picStatement = $db->prepare($picQuery);
+                                $picStatement->bindValue(':userID', $comment['UserID']);
+                                $picStatement->execute();
+                                $picRow = $picStatement->fetch();
+                                ?>
+                                <img src="<?=$picRow[0]?>" />
+                            </div>
                             <p>
+
                                 <?=$comment['Content']?>
                             </p>
 
