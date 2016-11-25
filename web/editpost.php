@@ -46,7 +46,7 @@ else {
             <form action="post_process.php" method="post">
                 <fieldset>
                     <legend>
-                        Edit Blog Post
+                        Edit Post
                     </legend>
                     <p>
                         <label for="title">Title</label>

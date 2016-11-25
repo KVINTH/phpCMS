@@ -31,10 +31,18 @@ $statement->execute();
                         <h1><a href="post.php?id=<?=$row['PostID']?>"><?=$row['PostTitle']?></a></h1>
                         <h4>
                             <?= $row['PostDate'] ?>
-                            <?php if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == true): ?>
-                            - <a href="editpost.php?id=<?=$row['PostID']?>">edit</a>
+
+                            <?php if (isset($_SESSION['loggedin'])
+                                    && $_SESSION['loggedin'] == true
+                                    && isset($_SESSION['isadmin'])
+                                    && $_SESSION['isadmin'] == true): ?>
+
+                                    <!-- the - below is for styling -->
+                                    - <a href="editpost.php?id=<?=$row['PostID']?>">edit</a>
+
                             <?php else: ?>
                             <?php endif ?>
+
                         </h4>
                     </header>
                     <content>
@@ -45,8 +53,23 @@ $statement->execute();
                             <?= $row['PostContent']?>
                         <?php endif ?>
                     </content>
-                    <div id="category">
-                        Category: <?= $row['CategoryName']?>
+                    <div id="info">
+                        <p>
+                            Posted by:
+                            <?php
+
+                            $userQuery = "SELECT UserID, Username FROM users WHERE UserID = :userID";
+                            $userStatement = $db->prepare($userQuery);
+                            $userStatement->bindValue(':userID', $row['UserID']);
+                            $userStatement->execute();
+                            $userRow = $userStatement->fetch();
+
+                            echo $userRow[1];
+                            ?>
+
+                            in Category:  <?= $row['CategoryName']?>
+                        </p>
+
                     </div>
                 </div>
             <?php endwhile ?>

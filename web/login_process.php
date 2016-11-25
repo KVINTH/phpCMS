@@ -32,6 +32,7 @@ if (isset($_POST['username']) && isset ($_POST['password'])) {
         }
 
         $role = $row['Role'];
+        $userID = $row['UserID'];
 
         if ($role == 1)
         {
@@ -40,6 +41,7 @@ if (isset($_POST['username']) && isset ($_POST['password'])) {
 
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
+        $_SESSION['userid'] = $userID;
 
 
         header('Location: index.php');
