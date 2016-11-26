@@ -3,6 +3,7 @@
 ## PDO connection to ClearDB
 ## This code was found at
 ## https://github.com/plehr/Heroku-and-PDO
+$dbstr = getenv('CLEARDB_DATABASE_URL');
 if (!empty($dbstr))
 {
     $dbstr = getenv('CLEARDB_DATABASE_URL');
