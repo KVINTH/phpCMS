@@ -38,7 +38,7 @@ if (isset($_POST['captcha']))
 
            if ($statement->execute())
            {
-               //header('Location: ' . $_SERVER['HTTP_REFERER']);
+               header('Location: ' . $_SERVER['HTTP_REFERER']);
 
                // header('Location: ' . );
 
@@ -46,18 +46,18 @@ if (isset($_POST['captcha']))
         }
         else
         {
-            //header('Location: ' . $_SERVER['HTTP_REFERER']);
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
     else
     {
         echo "incorrect captcha entered";
-        //header('Location: ' . $_SERVER['HTTP_REFERER']);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
 else
 {
-    //header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
 
