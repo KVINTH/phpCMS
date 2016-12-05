@@ -1,5 +1,10 @@
 <?php
+// Using the CaptchaBuilder
+use Gregwar\Captcha\CaptchaBuilder;
 require 'connect.php';
+
+// Requires the composer vendor autoload.php
+require_once __DIR__ . '/../vendor/autoload.php';
 session_start();
 
 if ($_GET != null)
@@ -20,6 +25,11 @@ if ($_GET != null)
 
     $commentStatement->bindValue(':id', $id, PDO::PARAM_INT);
     $commentStatement->execute();
+
+    // THUS BEGINS THE CAPTCHA CREATION ON posts
+    $builder = new CaptchaBuilder;
+    $builder->build();
+    $_SESSION['phrase'] = $builder->getPhrase();
 
     if(empty($row)) {
         header('Location: index.php');
@@ -104,8 +114,15 @@ else {
                                 <?php $user = $_SESSION['userid'] ?>
                                 <input name="postid" type="hidden" id="postid" value="<?=$row['PostID']?>"/>
                                 <input name="userid" type="hidden" id="userid" value="<?=$user?>"/>
+                                <br />
+                                <img src="<?php echo $builder->inline(); ?>" />
+                                <br />
+                                <label for="captcha">Please enter the captcha as seen above</label>
+                                <input name="captcha" type="text" id="captcha" />
+                                <br/>
                                 <input id="submit" type="submit" value="Comment"/>
-                                <div class="g-recaptcha" data-sitekey="6Le-6gwUAAAAANbWMq9sT26Ct-83SmigEdHZhPK4"></div>
+                                <!-- <div class="g-recaptcha" data-sitekey="6Le-6gwUAAAAANbWMq9sT26Ct-83SmigEdHZhPK4"></div> -->
+
                             </fieldset>
 
                         </form>

@@ -2,15 +2,11 @@
 require 'connect.php';
 require 'constants.php';
 require_once __DIR__ . '/../vendor/autoload.php';
+session_start();
 
-if (isset($_POST['g-recaptcha-response']))
+if (isset($_POST['captcha']))
 {
-
-    $recaptcha = new \ReCaptcha\Recaptcha($secret);
-
-    $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
-
-    if ($resp->isSuccess())
+    if ($_POST['captcha'] == $_SESSION['phrase'])
     {
         if ($_POST && isset($_POST['content'])
                    && !empty($_POST['content'])
@@ -48,15 +44,17 @@ if (isset($_POST['g-recaptcha-response']))
         {
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
-
     }
     else
     {
+        echo "incorrect captcha entered";
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
-
 }
-
+else
+{
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
 
 
 
