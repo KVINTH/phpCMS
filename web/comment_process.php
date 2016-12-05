@@ -1,7 +1,13 @@
 <?php
 require 'connect.php';
-require 'constants.php';
-require_once __DIR__ . '/../vendor/autoload.php';
+
+$dbstr = getenv('CLEARDB_DATABASE_URL');
+if (empty($dbstr))
+{
+    require 'constants.php';
+}
+
+//require_once __DIR__ . '/../vendor/autoload.php';
 session_start();
 
 if (isset($_POST['captcha']))
@@ -37,8 +43,6 @@ if (isset($_POST['captcha']))
                // header('Location: ' . );
 
            }
-
-
         }
         else
         {
