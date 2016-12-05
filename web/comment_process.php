@@ -1,7 +1,13 @@
 <?php
 require 'connect.php';
-require 'constants.php';
-require_once __DIR__ . '/../vendor/autoload.php';
+
+$dbstr = getenv('CLEARDB_DATABASE_URL');
+if (empty($dbstr))
+{
+    require 'constants.php';
+}
+
+//require_once __DIR__ . '/../vendor/autoload.php';
 session_start();
 
 if (isset($_POST['captcha']))
@@ -32,28 +38,26 @@ if (isset($_POST['captcha']))
 
            if ($statement->execute())
            {
-               header('Location: ' . $_SERVER['HTTP_REFERER']);
+               //header('Location: ' . $_SERVER['HTTP_REFERER']);
 
                // header('Location: ' . );
 
            }
-
-
         }
         else
         {
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            //header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
     else
     {
         echo "incorrect captcha entered";
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        //header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
 else
 {
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    //header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
 
