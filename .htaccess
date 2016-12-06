@@ -1,2 +1,2 @@
-RewriteEngine On
-RewriteRule ^posts/([^/]*)\.html$ /post.php?id=$1 [L]
+RewriteEngine on
+RewriteRule ^posts/([A-Za-z0-9-]+)/?$ posts.php?id=$1 [NC]

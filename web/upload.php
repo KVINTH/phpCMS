@@ -1,7 +1,7 @@
 <?php
-
 session_start();
 require 'connect.php';
+require 'ResizeImage.php';
 $userid = $_SESSION['userid'];
 
 $target_dir = "images/profile_pictures/";
@@ -54,6 +54,13 @@ if ($uploadOK == 0) {
 
         $id = $_SESSION['userid'];
         $statement->bindValue(':UserID', $id, PDO::PARAM_INT);
+
+        $resize = new ResizeImage("images/profile_pictures/$userid.$imageFileType");
+
+        $path = "images/profile_pictures/{$userid}.{$imageFileType}";
+
+        $resize->resizeTo(100, 100, 'maxWidth');
+        $resize->saveImage($path);
 
         if ($statement->execute())
         {

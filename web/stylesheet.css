@@ -49,7 +49,7 @@ input#searchimage {
     position: absolute;
     left: 405px;
     top: 0px;
-    
+
     /*left: -5px;*/
 
 }
@@ -137,11 +137,12 @@ div#comment {
   background-color: #efefef;
   text-align: center;
 }
-
+/*
 div#profilepic img {
     width: 200px;
 
 }
+*/
 div#commentImage img {
     width: 50px;
 }
