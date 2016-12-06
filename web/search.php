@@ -1,11 +1,12 @@
 <?php
 require 'connect.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+use JasonGrimes\Paginator;
 session_start();
     // This query gets a list of all categories for the advanced search function
     $categoryQuery = "SELECT * FROM categories ORDER BY CategoryID ASC";
     $categoryStatement = $db->prepare($categoryQuery);
     $categoryStatement->execute();
-
     if (!isset($_GET['category']))
     {
         $input = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -17,6 +18,13 @@ session_start();
         // The query above will not work with a bound value
         $statement->bindValue(':input', $input);
         $statement->execute();
+
+        $totalItems = count($statement->fetch());
+        $itemsPerPage = 5;
+        $currentPage = 1;
+       $urlPattern = '/foo/page/(:num)';
+
+       $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
     }
     else if (isset($_GET['category']))
     {
@@ -29,20 +37,14 @@ session_start();
         //$statement->bindValue(':input', $input);
         $statement->bindValue(':categoryID', $categoryInput);
         $statement->execute();
+
+        $totalItems = count($statement->fetch());
+        $itemsPerPage = 5;
+        $currentPage;
+       echo $totalItems;
     }
-    /*
-    if ($_GET[] == 'Submit')
-    {
 
 
-    }
-    /*
-    else if ($_GET['submit'] == "Advanced Search")
-    {
-
-    }
-*/
-//echo $_GET['search'];
 ?>
 
 
