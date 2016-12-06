@@ -19,9 +19,9 @@ if ($_POST['submit'] == 'Delete')
 if ($_POST && isset($_POST['title'])
            && isset($_POST['content'])
            && !empty($_POST['title'])
-           && !empty($_POST['content']
-           && isset($_POST['userid'])
-           && !empty($_POST['userid']))
+           && !empty($_POST['content'])
+        /* && isset($_POST['userid'])
+           && !empty($_POST['userid'])) */
 ){
         $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -42,19 +42,19 @@ if ($_POST && isset($_POST['title'])
             //$statement->bindValue(':useridnumber', $userID);
             $statement->bindValue(':user', $userID);
         }
-        else
+        else if ($_POST['submit'] == "Update")
         {
             $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 
             $editdate = time();
 
-            $query = "UPDATE posts SET PostTitle = :title, PostContent = :content, EditDate = :editdate WHERE PostID = :id";
+            $query = "UPDATE posts SET PostTitle = :title, PostContent = :content WHERE PostID = :id";
             $statement = $db->prepare($query);
 
             $statement->bindValue(':title', $title);
             $statement->bindValue(':content', $content);
             $statement->bindValue(':id', $id, PDO::PARAM_INT);
-            $statement->bindValue(':editdate', $editdate);
+            //$statement->bindValue(':editdate', $editdate);
         }
         if ($statement->execute())
         {
