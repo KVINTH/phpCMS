@@ -26,8 +26,6 @@
 </div>
 <div class="wrapper">
 
-<gcse:searchbox-only resultsUrl="search_results.php" newWindow="false" queryParameterName="search">
-
     <div id="content">
         <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
             <div id="newpost">
