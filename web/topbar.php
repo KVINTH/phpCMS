@@ -1,12 +1,14 @@
 <!-- TOP BAR -->
 <header id ="topheader">
     <a href="index.php"><img name="logo" id="logo" src="images/logo.jpg" alt="logo"></a>
+    <div id="search">
+        <form action="search.php">
+            <input name="search" id="search" type="search" />
+            <input id="searchimage" type="image" src="images/search.jpg" value="Search"/>
+        </form>
+    </div>
 
-    <!--
-    <input name="search" id="search" type="search" />
-    <input name="searchimage" id="searchimage" type="image" src="images/search.jpg" />
-    -->
-    <gcse:searchbox-only resultsUrl="search_results.php" newWindow="false" queryParameterName="search">
+
 </header>
 <div id="topprofile">
     <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>

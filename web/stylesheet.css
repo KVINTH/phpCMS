@@ -40,17 +40,25 @@ div.topbar input{
 input#search {
     height: 25px;
     border-style: none;
-
 }
+
 input#searchimage {
     height: 25px;
     width: auto;
     display: inline-block;
-    position: relative;
-    left: -5px;
-    top: -1px;
+    position: absolute;
+    left: 405px;
+    top: 0px;
+    
+    /*left: -5px;*/
+
 }
 
+div#search {
+    position: absolute;
+    left: 230px;
+    top: 15px;
+}
 #wrapper {
     margin: 0px auto;
     width: 800px;
