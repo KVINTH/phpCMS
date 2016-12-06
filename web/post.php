@@ -62,6 +62,7 @@ else {
 
         <div class="wrapper">
             <div id="content">
+                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true): ?>
                 <header>
                     <h1><?=$row['PostTitle']?></h1>
                     <h4>
@@ -128,6 +129,11 @@ else {
                         </form>
                     </div>
                 </div>
+            <?php else: ?>
+                <p>
+                    Please log in to see this page.
+                </p>
+            <?php endif ?>
             </div>
         </div>
     </body>
