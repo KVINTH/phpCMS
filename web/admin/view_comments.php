@@ -43,7 +43,7 @@
 <head>
     <meta charset="utf-8">
     <title>yourSPACE - View All Posts</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
 </head>
 <body>
     <table>

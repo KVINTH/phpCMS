@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <title>yourSPACE - New Page</title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
 </head>
 <body>
     <div id="topheader">
