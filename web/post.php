@@ -67,7 +67,7 @@ else {
                     <h1><?=$row['PostTitle']?></h1>
                     <h4>
                         <?=$row['PostDate']?> <?php if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == true): ?>
-                        - <a href="editpost.php?id=<?=$row['PostID']?>">edit</a>
+                        - <a href="/editpost.php?id=<?=$row['PostID']?>">edit</a>
                         <?php else: ?>
                         <?php endif ?>
                     </h4>
@@ -88,7 +88,7 @@ else {
                                 $picStatement->execute();
                                 $picRow = $picStatement->fetch();
                                 ?>
-                                <img src="<?=$picRow[0]?>" />
+                                <img src="/<?=$picRow[0]?>" />
                             </div>
                             <p>
 
