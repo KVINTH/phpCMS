@@ -29,7 +29,7 @@ $statement->execute();
                 <div class="feed">
                     <header>
 
-                        <h1><a href="/posts/<?=$row['PostID']?>.php">"><?=$row['PostTitle']?></a></h1>
+                        <h1><a href="/posts/<?=$row['PostID']?>.php"><?=$row['PostTitle']?></a></h1>
                         <h4>
                             <?= $row['PostDate'] ?>
 
