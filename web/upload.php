@@ -49,7 +49,7 @@ if ($uploadOK == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "images/profile_pictures/{$userid}.{$imageFileType}")) {
 
-        $query = "UPDATE users SET ProfilePicPath = 'images/profile_pictures/{$userid}.{$imageFileType}' WHERE UserID = :UserID";
+        $query = "UPDATE users SET ProfilePicPath = '/images/profile_pictures/{$userid}.{$imageFileType}' WHERE UserID = :UserID";
         $statement = $db->prepare($query);
 
         $id = $_SESSION['userid'];
