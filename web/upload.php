@@ -47,7 +47,7 @@ if ($uploadOK == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "/images/profile_pictures/{$userid}.{$imageFileType}")) {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "images/profile_pictures/{$userid}.{$imageFileType}")) {
 
         $query = "UPDATE users SET ProfilePicPath = '/images/profile_pictures/{$userid}.{$imageFileType}' WHERE UserID = :UserID";
         $statement = $db->prepare($query);
@@ -57,7 +57,7 @@ if ($uploadOK == 0) {
 
         $resize = new ResizeImage("/images/profile_pictures/$userid.$imageFileType");
 
-        $path = "images/profile_pictures/{$userid}.{$imageFileType}";
+        $path = "/images/profile_pictures/{$userid}.{$imageFileType}";
 
         $resize->resizeTo(100, 100, 'maxWidth');
         $resize->saveImage($path);
