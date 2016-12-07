@@ -88,7 +88,7 @@ else {
                                 $picStatement->execute();
                                 $picRow = $picStatement->fetch();
                                 ?>
-                                <img src="/<?=$picRow[0]?>" />
+                                <img src="<?=$picRow[0]?>" />
                             </div>
                             <p>
 
