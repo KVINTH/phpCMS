@@ -28,7 +28,8 @@ $statement->execute();
             <?php while(($row = $statement->fetch()) && ($i <=5)): ?>
                 <div class="feed">
                     <header>
-                        <h1><a href="post.php?id=<?=$row['PostID']?>"><?=$row['PostTitle']?></a></h1>
+
+                        <h1><a href="/posts/<?=$row['PostID']?>.php">"><?=$row['PostTitle']?></a></h1>
                         <h4>
                             <?= $row['PostDate'] ?>
 
@@ -48,7 +49,7 @@ $statement->execute();
                     <content>
                         <?php if (strlen($row['PostContent']) > 200): ?>
                             <?= substr($row['PostContent'], 0, 199) ?>
-                            ... <a href="post.php?id=<?=$row['PostID']?>">Read more</a>
+                            ... <a href="/post.php?id=<?=$row['PostID']?>">Read more</a>
                         <?php else: ?>
                             <?= $row['PostContent']?>
                         <?php endif ?>
