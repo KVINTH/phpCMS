@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <title>yourSPACE </title>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
