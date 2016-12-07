@@ -55,7 +55,7 @@ if ($uploadOK == 0) {
         $id = $_SESSION['userid'];
         $statement->bindValue(':UserID', $id, PDO::PARAM_INT);
 
-        $resize = new ResizeImage("/images/profile_pictures/$userid.$imageFileType");
+        $resize = new ResizeImage("images/profile_pictures/$userid.$imageFileType");
 
         $path = "/images/profile_pictures/{$userid}.{$imageFileType}";
 
