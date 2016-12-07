@@ -109,7 +109,7 @@ else {
                         </div>
                     <?php endwhile ?>
                     <div id="newcomment">
-                        <form action="comment_process.php" method="post">
+                        <form action="/comment_process.php" method="post">
                             <fieldset>
                                 <textarea id="content" name="content" rows="4" cols="50"></textarea>
                                 <?php $user = $_SESSION['userid'] ?>
