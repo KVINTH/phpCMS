@@ -68,7 +68,7 @@ session_start();
 
     <div id="content">
         <div id="advsearch">
-            <form action="search.php">
+            <form action="/search.php">
                 <fieldset>
                     <legend>
                         Advanced Search
@@ -97,7 +97,7 @@ session_start();
                 <?php while($row = $statement->fetch()): ?>
                     <div class="feed">
                         <header>
-                            <h4><a href="post.php?id=<?=$row['PostID']?>"><?=$row['PostTitle']?></a></h4>
+                            <h4><a href="posts/<?=$row['PostID']?>.php"><?=$row['PostTitle']?></a></h4>
                             <h4>
                                 <?= $row['PostDate'] ?>
 
@@ -117,7 +117,7 @@ session_start();
                         <content>
                             <?php if (strlen($row['PostContent']) > 200): ?>
                                 <?= substr($row['PostContent'], 0, 199) ?>
-                                ... <a href="post.php?id=<?=$row['PostID']?>">Read more</a>
+                                ... <a href="posts/<?=$row['PostID']?>.php">Read more</a>
                             <?php else: ?>
                                 <?= $row['PostContent']?>
                             <?php endif ?>
