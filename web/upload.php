@@ -4,7 +4,7 @@ require 'connect.php';
 require 'ResizeImage.php';
 $userid = $_SESSION['userid'];
 
-$target_dir = "/images/profile_pictures/";
+$target_dir = "images/profile_pictures/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOK = 1;
 $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
