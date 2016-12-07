@@ -26,7 +26,7 @@
         <!-- <script src="../vendor/ckeditor/ckeditor/ckeditor.js"></script> -->
     </head>
     <body>
-        <form action="post_process.php" method="post">
+        <form action="\post_process.php" method="post">
             <fieldset>
                 <legend>
                     New Post
