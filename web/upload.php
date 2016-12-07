@@ -57,7 +57,7 @@ if ($uploadOK == 0) {
 
         $resize = new ResizeImage("images/profile_pictures/$userid.$imageFileType");
 
-        $path = "/images/profile_pictures/{$userid}.{$imageFileType}";
+        $path = "images/profile_pictures/{$userid}.{$imageFileType}";
 
         $resize->resizeTo(100, 100, 'maxWidth');
         $resize->saveImage($path);
