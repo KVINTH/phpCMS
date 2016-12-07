@@ -18,13 +18,6 @@ session_start();
         // The query above will not work with a bound value
         $statement->bindValue(':input', $input);
         $statement->execute();
-
-        $totalItems = count($statement->fetch());
-        $itemsPerPage = 5;
-        $currentPage = 1;
-       $urlPattern = '/foo/page/(:num)';
-
-       $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
     }
     else if (isset($_GET['category']))
     {
@@ -38,10 +31,6 @@ session_start();
         $statement->bindValue(':categoryID', $categoryInput);
         $statement->execute();
 
-        $totalItems = count($statement->fetch());
-        $itemsPerPage = 5;
-        $currentPage;
-       echo $totalItems;
     }
 
 
