@@ -4,7 +4,7 @@ require 'connect.php';
 require 'ResizeImage.php';
 $userid = $_SESSION['userid'];
 
-$target_dir = "images/profile_pictures/";
+$target_dir = "/images/profile_pictures/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOK = 1;
 $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -47,7 +47,7 @@ if ($uploadOK == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "images/profile_pictures/{$userid}.{$imageFileType}")) {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "/images/profile_pictures/{$userid}.{$imageFileType}")) {
 
         $query = "UPDATE users SET ProfilePicPath = '/images/profile_pictures/{$userid}.{$imageFileType}' WHERE UserID = :UserID";
         $statement = $db->prepare($query);
@@ -55,7 +55,7 @@ if ($uploadOK == 0) {
         $id = $_SESSION['userid'];
         $statement->bindValue(':UserID', $id, PDO::PARAM_INT);
 
-        $resize = new ResizeImage("images/profile_pictures/$userid.$imageFileType");
+        $resize = new ResizeImage("/images/profile_pictures/$userid.$imageFileType");
 
         $path = "images/profile_pictures/{$userid}.{$imageFileType}";
 
