@@ -55,7 +55,7 @@
         <?php while($row = $statement->fetch()):?>
             <tr>
                 <td>
-                    <a href="../post.php?id=<?=$row['PostID']?>"><?=$row['PostTitle']?></a>
+                    <a href="../posts/<?=$row['PostID']?>.php"><?=$row['PostTitle']?></a>
                 </td>
                 <td>
                     <?=$row['PostDate']?>
