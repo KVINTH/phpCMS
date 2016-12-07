@@ -19,7 +19,6 @@ if (isset($_POST['username']) && isset ($_POST['password'])) {
 
     $verified = password_verify($password, $hash);
 
-
     if ($verified) {
         if (isset($_POST['rememberme'])) {
             /* Set cookie to last 1 year */
