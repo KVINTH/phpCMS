@@ -47,7 +47,7 @@ else {
     <head>
         <meta charset="utf-8">
         <title>Post -</title>
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheet.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
